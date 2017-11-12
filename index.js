@@ -13,13 +13,14 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var mongoose = require('mongoose');
 var flash = require('connect-flash');
+
 var session = require('express-session');
 
-var routes = require('./routes/index');
-//var users = require('./routes/users');
 
 var configDB = require('./config/database.js');
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url, () => {
+  console.log("connected to mongodb");
+});
 
 var app = express();
 app.use(cors());
@@ -27,6 +28,8 @@ app.use(cors());
 //app.use(cors1.permission);
 // Add headers
 
+var routes = require('./routes/index');
+//var users = require('./routes/users');
 app.use(express.static(path.join(__dirname, 'public')));
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');

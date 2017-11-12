@@ -12,13 +12,11 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
   res.json({user: req.user});}
 );
 
-router.get('/auth/google/redirect', (req, res) => {
-  res.send('you reached the callbackURL')
-}
-//passport.authenticate('google', {
+router.get('/auth/google/redirect', passport.authenticate('google', {
   //successRedirect: '/profile',
-  //failureRedirect: '/',
-);
+  //failureRedirect: '/'
+}
+));
 
 module.exports = router;
 

@@ -21,4 +21,7 @@ doSomething(){
        console.log(this.data);
     });
   }
+   myFunction() {
+    location.href = "http://localhost:8080/auth/google";
+}
 }

@@ -13,8 +13,8 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
 );
 
 router.get('/auth/google/redirect', passport.authenticate('google', {
-  //successRedirect: '/profile',
-  //failureRedirect: '/'
+  successRedirect: '/profile',
+  failureRedirect: '/'
 }
 ));
 
